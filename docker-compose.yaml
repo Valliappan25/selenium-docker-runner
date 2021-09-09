@@ -38,14 +38,4 @@ services:
       - MODULE=Book-Flight-Module.xml
     volumes:
       - /home/n1502752/Docker_workspace/Book_result:/usr/project/docker/test-output
-  Search-Module2:
-    image: valliappan25/selenium-docker
-    depends_on:
-      - firefox
-      - chrome
-    environment:
-      - HUB_HOST=hub
-      - BROWSER=chrome
-      - MODULE=SearchText-testng.xml
-    volumes:
-      - /home/n1502752/Docker_workspace/Search_result2:/usr/project/docker/test-output
+  
