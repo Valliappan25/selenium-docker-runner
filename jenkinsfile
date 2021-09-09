@@ -1,0 +1,16 @@
+pipeline{
+  agent any
+      stages{
+        stage("Run Compose File"){
+          steps{
+              sh "sudo docker-compose up"
+            }
+          }
+          stage("Stop run the Compose File"){
+            steps{
+              sh "sudo docker-compose down"
+            }
+          }
+
+      }
+}
