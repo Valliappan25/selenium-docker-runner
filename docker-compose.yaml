@@ -1,0 +1,51 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:3.14
+    ports:
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome:3.14
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  firefox:
+    image: selenium/node-firefox:3.14
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  Search-Module1:
+    image: valliappan25/selenium-docker
+    depends_on:
+      - firefox
+      - chrome
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=firefox
+      - MODULE=SearchText-testng.xml
+    volumes:
+      - /home/n1502752/Docker_workspace/Search_result1:/usr/project/docker/test-output
+  Flight-Module:
+    image: valliappan25/selenium-docker
+    depends_on:
+      - firefox
+      - chrome
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=firefox
+      - MODULE=Book-Flight-Module.xml
+    volumes:
+      - /home/n1502752/Docker_workspace/Book_result:/usr/project/docker/test-output
+  Search-Module2:
+    image: valliappan25/selenium-docker
+    depends_on:
+      - firefox
+      - chrome
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - MODULE=SearchText-testng.xml
+    volumes:
+      - /home/n1502752/Docker_workspace/Search_result2:/usr/project/docker/test-output
