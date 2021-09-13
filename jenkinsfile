@@ -1,14 +1,19 @@
 pipeline{
   agent any
       stages{
-        stage("Run Compose File"){
+        stage("Start Selenium Grid"){
           steps{
-              sh "sudo docker-compose up"
+              	sh "sudo docker-compose up -d hub chrome firefox"
             }
           }
-          stage("Stop run the Compose File"){
-            steps{
-              sh "sudo docker-compose down"
+        stage("Run the Test Script"){
+          steps{
+          	sh "sudo docker-compose up Search-Module1 Flight-Module"
+          }
+        }	
+        stage("Stop Selenium Grid"){
+          steps{
+              	sh "sudo docker-compose down"
             }
           }
 
