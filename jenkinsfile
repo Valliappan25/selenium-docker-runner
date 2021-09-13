@@ -14,7 +14,7 @@ pipeline{
      }
       post{
         always{
-          archiveArtifacts artifacts: 'output/'
+          archiveArtifacts artifacts: '/home/n1502752/output-results/'
           sh "sudo docker-compose down"
           }
         }
