@@ -11,11 +11,11 @@ pipeline{
           	sh "sudo docker-compose up Search-Module1 Flight-Module"
           }
         }	
-        stage("Stop Selenium Grid"){
-          steps{
-              	sh "sudo docker-compose down"
-            }
+     }
+      post{
+        always{
+          archiveArtifacts artifacts: 'output/**'
+          sh "sudo docker-compose down"
           }
-
-      }
+        }
 }
