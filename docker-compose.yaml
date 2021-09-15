@@ -24,7 +24,7 @@ services:
       - BROWSER=firefox
       - MODULE=SearchText-testng.xml
     volumes:
-      - /home/n1502752/Docker_workspace/Search_result1:/usr/project/docker/test-output
+      - ./output/SearchModule_result:/usr/project/docker/test-output
   Flight-Module:
     image: valliappan25/selenium-docker
     depends_on:
@@ -35,5 +35,5 @@ services:
       - BROWSER=firefox
       - MODULE=Book-Flight-Module.xml
     volumes:
-      - /home/n1502752/Docker_workspace/Book_result:/usr/project/docker/test-output
+      - ./output/BookFlightModule_result:/usr/project/docker/test-output
   
