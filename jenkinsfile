@@ -8,8 +8,7 @@ pipeline{
          }
         stage("Start Selenium Grid"){
           steps{
-                sh "sudo mkdir -p output"
-              	sh "sudo docker-compose up -d hub chrome firefox"
+                sh "sudo docker-compose up -d hub chrome firefox"
             }
           }
         stage("Run the Test Script"){
@@ -20,7 +19,7 @@ pipeline{
      }
       post{
         always{
-          archiveArtifacts artifacts: '*'
+          archiveArtifacts artifacts: 'output/**'
           sh "sudo docker-compose down"
           }
         }
