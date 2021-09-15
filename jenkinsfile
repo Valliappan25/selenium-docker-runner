@@ -20,7 +20,7 @@ pipeline{
       post{
         always{
           sh "mkdir -p output"
-          archiveArtifacts artifacts: "output/*"
+          archiveArtifacts artifacts: 'output/*'
           sh "sudo docker-compose down"
           }
         }
